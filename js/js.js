@@ -96,15 +96,13 @@ function game() {
         let winner = playRound(player, computer);
 
         // Print who won round
-            console.log(winner);
+        console.log(winner);
 
         // Track score
         if (winner.slice(0, 7) === 'You Win') {
             playerScore++;
         } else if (winner.slice(0, 8) === 'You Lose') {
             computerScore++;
-        } else if (winner === 'Tie!') {
-            continue;
         }
 
         // If it was a last round print score and winner
