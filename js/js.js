@@ -31,10 +31,11 @@ function playerSelection() {
     let handleInvalid = playerSelection();
     return handleInvalid;  
 }
-let player = window.playerSelection();
+let player;
 console.log('You: ' + player);
-let computer = window.computerPlay();
+let computer;
 console.log('Computer: ' + computer);
+
 
 // Play a round of the game, return result
 function playRound(playerSelection, computerSelection) {
@@ -55,4 +56,32 @@ function playRound(playerSelection, computerSelection) {
     } else {
         return;
     }
+}
+
+// Call playerSelection and computerPlay to update variables 
+// before playing a round and playRound
+function oneGame() {
+    player = window.playerSelection();
+    console.log('You: ' + player);
+
+    computer = window.computerPlay();
+    console.log('Computer: ' + computer);
+
+    return window.playRound(player, computer);
+}
+
+// Play 5 rounds, keep score and report loser and winner
+
+// get new playerSelection and computerPlay - update variables
+// create variables for player and computer scores
+// make loop to repeat task below 5 times:
+// call play Round
+// increment relevant variable
+// if it's the last round, print score and winner
+function game() {
+    player = window.playerSelection();
+    console.log('You: ' + player);
+
+    computer = window.computerPlay();
+    console.log('Computer: ' + computer);
 }
