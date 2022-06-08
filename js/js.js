@@ -1,6 +1,7 @@
 // Randomly generate rock, paper or scissors for computer
 function computerPlay() {
     let randomInt = getRandomInt();
+
     if (randomInt >= 0 && randomInt <= 2) {
         return "Rock";
     } else if (randomInt >= 3 && randomInt <= 5) {
@@ -18,8 +19,13 @@ function getRandomInt() {
 // Get player's input, case insensitive
 function playerSelection() {
     let input = prompt('Choose: rock, paper or scissors');
+    if (input === null) {
+        return 'You cancelled whole operation';
+    }
+    // Convert input to lower case
     input = input.toLowerCase();
     console.log(input);
+
     if (input === 'rock') {
         return 'Rock';
     } else if (input === 'paper') {
@@ -31,11 +37,9 @@ function playerSelection() {
     let handleInvalid = playerSelection();
     return handleInvalid;  
 }
-let player;
-console.log('You: ' + player);
-let computer;
-console.log('Computer: ' + computer);
 
+let player;
+let computer;
 
 // Play a round of the game, return result
 function playRound(playerSelection, computerSelection) {
@@ -58,11 +62,12 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-// Call playerSelection and computerPlay to update variables 
-// before playing a round and playRound
+// Play one full game including getting input from user and computer selection
 function oneGame() {
     player = window.playerSelection();
-    console.log('You: ' + player);
+    if (player === 'You cancelled whole operation') {
+        return player;
+    }
 
     computer = window.computerPlay();
     console.log('Computer: ' + computer);
@@ -70,18 +75,50 @@ function oneGame() {
     return window.playRound(player, computer);
 }
 
-// Play 5 rounds, keep score and report loser and winner
-
-// get new playerSelection and computerPlay - update variables
-// create variables for player and computer scores
-// make loop to repeat task below 5 times:
-// call play Round
-// increment relevant variable
-// if it's the last round, print score and winner
+// Play 5 rounds, keep score and report winner or loser
 function game() {
-    player = window.playerSelection();
-    console.log('You: ' + player);
+    // Score variables
+    let playerScore = 0;
+    let computerScore = 0;
 
-    computer = window.computerPlay();
-    console.log('Computer: ' + computer);
+    for (let i = 0; i < 5; i++) {
+        // Get input for new round
+        player = window.playerSelection();
+        // Abort if prompt cancelled
+        if (player === 'You cancelled whole operation') {
+            return player;
+        }
+
+        computer = window.computerPlay();
+        console.log('Computer: ' + computer);
+
+        // Who won round
+        let winner = playRound(player, computer);
+
+        // Print who won round
+            console.log(winner);
+
+        // Track score
+        if (winner.slice(0, 7) === 'You Win') {
+            playerScore++;
+        } else if (winner.slice(0, 8) === 'You Lose') {
+            computerScore++;
+        } else if (winner === 'Tie!') {
+            continue;
+        }
+
+        // If it was a last round print score and winner
+        if (i === 4) {
+            console.log('Your score: ' + playerScore + '\nComputer score:' + computerScore);
+
+            if (playerScore === computerScore) {
+                return('Tie!');
+            } else if (playerScore > computerScore) {
+                return('You Win!');
+            } else if (playerScore < computerScore) {
+                return('You Lose!');
+            }
+        }
+    }
+    return;
 }
