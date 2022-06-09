@@ -22,7 +22,6 @@ function playerSelection() {
     if (input === null) {
         return 'You cancelled whole operation';
     }
-    // Convert input to lower case
     input = input.toLowerCase();
     console.log(input);
 
@@ -77,14 +76,12 @@ function oneGame() {
 
 // Play 5 rounds, keep score and report winner or loser
 function game() {
-    // Score variables
     let playerScore = 0;
     let computerScore = 0;
 
     for (let i = 0; i < 5; i++) {
         // Get input for new round
         player = window.playerSelection();
-        // Abort if prompt cancelled
         if (player === 'You cancelled whole operation') {
             return player;
         }
@@ -92,10 +89,7 @@ function game() {
         computer = window.computerPlay();
         console.log('Computer: ' + computer);
 
-        // Who won round
         let winner = playRound(player, computer);
-
-        // Print who won round
         console.log(winner);
 
         // Track score
