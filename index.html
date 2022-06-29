@@ -4,13 +4,14 @@
 <!-- Dynamically changing borders and size - pulsation effect (quick), satisfying sound (ideas from JavaScript Drum Kit tutorial) -->
 <!-- Green or red border indicating who won a round -->
 <!-- Interact with mouse click or QWE keys -->
+<!-- All buttons green for winner, red for loser -->
 <!-- Reset (during game) and Start Again (after finished game) buttons -->
 <!-- Text content: YOU, AI, SCORE 5 POINTS TO WIN, round counter, title (test if it's necessary), short instruction of gameplay with small font -->
 <!-- Score bar, indicator in the middle where you want to get (https://tomsoerr.github.io/odin-rock-paper-scissors/) -->
 
 <!-- Inspirations: -->
 <!-- Round 1 (top), vs (in the middle, between icons), title font, simplicity (https://jetza99.github.io/rock-paper-scissors/) -->
-<!-- Copyright, github logo idea, (fix flexbox project copyright) (https://michalosman.github.io/rock-paper-scissors/) -->
+<!-- Copyright, github logo idea (https://michalosman.github.io/rock-paper-scissors/) -->
 
 
 
@@ -23,7 +24,45 @@
         <title>Rock-Paper-Scissors</title>
     </head>
 
-    <body style="background-color: black; color: white;">
+    <body>
+
+        <div class="title">ROCK PAPER SCISSORS</div>
+
+        <div class="instruction">score 5 points to win</div>
+
+        <div class="headers">
+            <div>YOU</div>
+            <div>ROUND</div>
+            <div>AI</div>
+        </div>
+
+        <div>
+            <div class="gameplay">
+                <div>PRESS QWE or CLICK</div>
+                <div>
+                    <button>ROCK</button>
+                    <button>PAPER</button>
+                    <button>SCISSORS</button>
+                </div>
+            </div>
+            <div></div>
+            <div>
+                <div>empty division for balance</div>
+                <div>
+                    <button>ROCK</button>
+                    <button>PAPER</button>
+                    <button>SCISSORS</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="score-bar">Score Bar</div>
+
+        <div>
+            <button>RESTART</button>
+        </div>
+
+        <div>footer</div>
 
     </body>
 </html>
