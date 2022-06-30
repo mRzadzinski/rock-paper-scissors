@@ -15,7 +15,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 10vh;
-    padding-top: 2vh;
+    padding-top: 1vh;
     background-color: ;
     color: ;
     font-size: 4.7vh;
@@ -45,6 +45,7 @@ body {
     background-color: ;
     color: ;
     font-size: 3.5vh;
+    margin-top: -1vh;
 }
 
 #round {
@@ -86,11 +87,17 @@ button {
     height: 12vh;
 }
 
+input,
+img {
+    height: 12vh;
+    width: 12vh;
+    border: solid;
+}
+
 .buttons {
     display: flex;
     gap: 5vh;
 }
-
 
 .player,
 .ai,
