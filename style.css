@@ -6,7 +6,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
-    font-size: 2.3vh;
+    font-size: 2vh;
     font-family: 'Nunito', sans-serif;
 }
 
@@ -15,7 +15,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 10vh;
-    margin-top: 2vh;
+    padding-top: 2vh;
     background-color: ;
     color: ;
     font-size: 4.7vh;
@@ -26,19 +26,25 @@ body {
     justify-content: center;
     align-items: center;
     height: 6vh;
-    background-color: ;
-    color: ;
-    font-size: 2.9vh;
+    margin-top: -2.2vh;
+    padding-bottom: 1.1vh;
+    font-size: 2.5vh;
+}
+
+.title,
+.instruction {
+    background-color: grey;
 }
 
 .headers {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    gap: 11vw;
     height: 17vh;
     background-color: ;
     color: ;
-    font-size: 3.7vh;
+    font-size: 3.5vh;
 }
 
 #round {
@@ -53,21 +59,49 @@ body {
 
 .gameplay {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: stretch;
+    gap: 5vw;
     flex: 1;
     background-color: ;
     color: ;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.ai {
+    margin-top: 7vh;
 }
 
 .vertical-line {
     border: 1px solid black;
 }
 
+button {
+    width: 12vh;
+    height: 12vh;
+}
+
+.buttons {
+    display: flex;
+    gap: 5vh;
+}
+
+
 .player,
 .ai,
 .score-bar {
     align-self: center;
+    text-align: center;
+}
+
+.player,
+.ai {
+    margin-bottom: 4.6vh;
 }
 
 .score-bar {
@@ -75,7 +109,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 15vh;
-    margin-bottom: -5vh;
+    margin-bottom: 0;
 }
 
 .restart {
@@ -84,6 +118,12 @@ body {
     align-items: center;
     height: 12vh;
     text-align: center;
+    margin-top: -5.5vh;
+}
+
+#restart {
+    height: 5vh;
+    width: 10vw;
 }
 
 .footer {
@@ -92,4 +132,6 @@ body {
     align-items: center;
     height: 6vh;
     text-align: center;
+    background-color: gray;
 }
+
