@@ -91,7 +91,8 @@ input,
 img {
     height: 12vh;
     width: 12vh;
-    border: solid;
+    border: solid 0.4vh;
+    border-radius: 10%;
 }
 
 .buttons {
@@ -101,7 +102,7 @@ img {
 
 .player,
 .ai,
-.score-bar {
+.bar-container {
     align-self: center;
     text-align: center;
 }
@@ -111,12 +112,47 @@ img {
     margin-bottom: 4.6vh;
 }
 
-.score-bar {
+.bar-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 15vh;
     margin-bottom: 0;
+    width: 65vw;
+}
+
+#bar-regular-container,
+#bar-reversed-container {
+    width: 50%;
+    height: 4vh;
+    border: solid 2px;
+}
+
+#bar-regular-container {
+    border-radius: 20px 0 0 20px;
+    border-right: solid 2px;
+}
+
+#bar-reversed-container {
+    border-radius: 0 20px 20px 0;
+    border-left: 0;
+}
+
+#bar-regular,
+#bar-reversed {
+    background-color: rgb(122, 122, 122);
+    height: 4vh;
+}
+
+#bar-regular {
+    width: 33%;
+    border-radius: 20px 0 0 20px;
+}
+
+#bar-reversed {
+    width: 22%;
+    border-radius: 0 20px 20px 0;
+    float: right;
 }
 
 .restart {
@@ -125,7 +161,7 @@ img {
     align-items: center;
     height: 12vh;
     text-align: center;
-    margin-top: -5.5vh;
+    margin-top: -2.5vh;
 }
 
 #restart {
