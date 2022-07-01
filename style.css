@@ -14,7 +14,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10vh;
+    height: 8vh;
     padding-top: 1vh;
     background-color: ;
     color: ;
@@ -88,11 +88,12 @@ button {
 }
 
 input,
-img {
+.gameplay-image {
     height: 12vh;
     width: 12vh;
     border: solid 0.4vh;
     border-radius: 10%;
+    background-color: rgb(255, 255, 255);
 }
 
 .buttons {
@@ -117,7 +118,6 @@ img {
     justify-content: center;
     align-items: center;
     height: 15vh;
-    margin-bottom: 0;
     width: 65vw;
 }
 
@@ -129,12 +129,12 @@ img {
 }
 
 #bar-regular-container {
-    border-radius: 20px 0 0 20px;
+    border-radius: 25px 0 0 25px;
     border-right: solid 2px;
 }
 
 #bar-reversed-container {
-    border-radius: 0 20px 20px 0;
+    border-radius: 0 25px 25px 0;
     border-left: 0;
 }
 
@@ -150,23 +150,27 @@ img {
 }
 
 #bar-reversed {
-    width: 22%;
+    width: 60%;
     border-radius: 0 20px 20px 0;
     float: right;
 }
 
-.restart {
+.restart-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 12vh;
+    height: 17vh;
     text-align: center;
-    margin-top: -2.5vh;
+    margin-top: -6vh;
 }
 
 #restart {
     height: 5vh;
-    width: 10vw;
+    width: 15vw;
+    border-radius: 35px;
+    font-size: 1.9vh;
+    font-family: 'Nunito', sans-serif;
+    border-width: 4px;
 }
 
 .footer {
@@ -178,3 +182,8 @@ img {
     background-color: gray;
 }
 
+#github {
+    height: 3vh;
+    width: 3vh;
+    padding-bottom: 0.2vh;
+}
