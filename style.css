@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
 
+.title,
+.instruction,
+.footer,
+#bar-regular,
+#bar-reversed,
+#restart {
+    background-color: #230C0F;
+    color: #CBA328;
+}
+
 body {
     margin: 0px;
     display: flex;
@@ -8,6 +18,17 @@ body {
     height: 100vh;
     font-size: 2vh;
     font-family: 'Nunito', sans-serif;
+    background-color: #CBA328;
+    color: #230C0F;
+}
+
+input,
+.gameplay-image {
+    height: 12vh;
+    width: 12vh;
+    border: solid 0.4vh black;
+    border-radius: 10%;
+    background-color: #230C0F;
 }
 
 .title {
@@ -16,8 +37,6 @@ body {
     align-items: center;
     height: 8vh;
     padding-top: 1vh;
-    background-color: ;
-    color: ;
     font-size: 4.7vh;
 }
 
@@ -31,19 +50,12 @@ body {
     font-size: 2.5vh;
 }
 
-.title,
-.instruction {
-    background-color: grey;
-}
-
 .headers {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 11vw;
+    gap: 12vw;
     height: 17vh;
-    background-color: ;
-    color: ;
     font-size: 3.5vh;
     margin-top: -1vh;
 }
@@ -64,8 +76,6 @@ body {
     align-items: stretch;
     gap: 5vw;
     flex: 1;
-    background-color: ;
-    color: ;
 }
 
 .player {
@@ -85,15 +95,6 @@ body {
 button {
     width: 12vh;
     height: 12vh;
-}
-
-input,
-.gameplay-image {
-    height: 12vh;
-    width: 12vh;
-    border: solid 0.4vh;
-    border-radius: 10%;
-    background-color: rgb(255, 255, 255);
 }
 
 .buttons {
@@ -140,7 +141,6 @@ input,
 
 #bar-regular,
 #bar-reversed {
-    background-color: rgb(122, 122, 122);
     height: 4vh;
 }
 
@@ -167,10 +167,18 @@ input,
 #restart {
     height: 5vh;
     width: 15vw;
+    border: none;
+    border: solid 3px black;
     border-radius: 35px;
     font-size: 1.9vh;
     font-family: 'Nunito', sans-serif;
-    border-width: 4px;
+    font-weight: bold;
+    transition-duration: 0.05s;
+}
+
+#restart:hover {
+    background-color: #CBA328;
+    color: #230C0F;
 }
 
 .footer {
@@ -179,7 +187,6 @@ input,
     align-items: center;
     height: 6vh;
     text-align: center;
-    background-color: gray;
 }
 
 #github {
