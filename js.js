@@ -114,3 +114,41 @@ function game() {
     }
     return;
 }
+
+
+window.addEventListener('DOMContentLoaded', (event) => {
+
+    const audio = document.querySelector('audio');
+
+    function addEffectsForKeys(e) {
+        const button = document.querySelector(`.gameplay-image.${e.code}`)
+        if (e.code === 'KeyQ' || e.code === 'KeyW' || e.code === 'KeyE') {
+            button.classList.add('clicked');
+            // Reset audio to play immediately again
+            audio.currentTime = 0; 
+            audio.play();
+        }
+    }
+
+    //Add effects on click
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('active')) {
+            e.target.classList.add('clicked');
+            audio.play();
+        }
+    });
+    
+    // When transition ends, remove effect
+    let buttons = document.querySelectorAll('.active');
+    buttons.forEach(button => button.addEventListener('transitionend', removeTransition));
+    
+    function removeTransition(e) {
+        this.classList.remove('clicked');
+    }
+    
+    window.addEventListener('keydown', addEffectsForKeys);
+
+
+});
+
+

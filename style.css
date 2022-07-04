@@ -22,13 +22,18 @@ body {
     color: #230C0F;
 }
 
-input,
 .gameplay-image {
     height: 12vh;
     width: 12vh;
     border: solid 0.4vh black;
     border-radius: 10%;
     background-color: #230C0F;
+    transition: 0.09s;
+}
+
+.clicked {
+    transform: scale(1.1);
+    border-color: #D6F49D;
 }
 
 .title {
@@ -90,11 +95,6 @@ input,
 
 .vertical-line {
     border: 1px solid black;
-}
-
-button {
-    width: 12vh;
-    height: 12vh;
 }
 
 .buttons {
@@ -179,6 +179,11 @@ button {
 #restart:hover {
     background-color: #CBA328;
     color: #230C0F;
+}
+
+#restart:active {
+    background-color: #230C0F;
+    color: #CBA328;;
 }
 
 .footer {
