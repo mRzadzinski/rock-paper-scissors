@@ -209,6 +209,8 @@ body {
 #github {
     height: 3vh;
     width: 3vh;
+    min-height: 18px;
+    min-width: 18px;
     padding-bottom: 0.2vh;
     transition: 0.3s;
 }
