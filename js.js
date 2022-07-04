@@ -139,16 +139,18 @@ window.addEventListener('DOMContentLoaded', (event) => {
     });
     
     // When transition ends, remove effect
-    let buttons = document.querySelectorAll('.active');
+    const buttons = document.querySelectorAll('.active');
     buttons.forEach(button => button.addEventListener('transitionend', removeTransition));
     
     function removeTransition(e) {
         this.classList.remove('clicked');
+        this.classList.remove('git');
     }
     
     window.addEventListener('keydown', addEffectsForKeys);
+    
+    const git = document.querySelector('#github');
+    git.addEventListener('mouseover', (e) => git.classList.add('git'));
+    git.addEventListener('mouseleave', (e) => git.classList.remove('git'));
 
-
-});
-
-
+})

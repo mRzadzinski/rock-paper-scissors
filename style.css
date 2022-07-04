@@ -16,7 +16,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
-    font-size: 2vh;
+    font-size: calc(12px + .8vh);
     font-family: 'Nunito', sans-serif;
     background-color: #CBA328;
     color: #230C0F;
@@ -25,6 +25,8 @@ body {
 .gameplay-image {
     height: 12vh;
     width: 12vh;
+    min-height: 120px;
+    min-width: 120px;
     border: solid 0.4vh black;
     border-radius: 10%;
     background-color: #230C0F;
@@ -42,7 +44,8 @@ body {
     align-items: center;
     height: 8vh;
     padding-top: 1vh;
-    font-size: 4.7vh;
+    font-size: calc(27px + 2vh);
+    min-height: 50px;
 }
 
 .instruction {
@@ -52,21 +55,7 @@ body {
     height: 6vh;
     margin-top: -2.2vh;
     padding-bottom: 1.1vh;
-    font-size: 2.5vh;
-}
-
-.headers {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12vw;
-    height: 17vh;
-    font-size: 3.5vh;
-    margin-top: -1vh;
-}
-
-#round {
-    margin-right: 37px;
+    font-size: calc(15px + 1vh);
 }
 
 .gameplay-container {
@@ -83,23 +72,38 @@ body {
     flex: 1;
 }
 
-.player {
+.player,
+.ai {
     display: flex;
     flex-direction: column;
-    gap: 5vh;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .ai {
-    margin-top: 7vh;
+    gap: 7.5vh;
+}
+
+#you,
+#ai {
+    height: 17vh;
+    font-size: calc(30px + 1.7vh);
+    margin-top: -5vh;
 }
 
 .vertical-line {
     border: 1px solid black;
+    height: 38vh;
+    margin-top: 13vh;
 }
 
 .buttons {
     display: flex;
     gap: 5vh;
+}
+
+#qwe {
+    margin-bottom: 5vh;
 }
 
 .player,
@@ -127,6 +131,7 @@ body {
     width: 50%;
     height: 4vh;
     border: solid 2px;
+    min-height: 30px;
 }
 
 #bar-regular-container {
@@ -137,11 +142,13 @@ body {
 #bar-reversed-container {
     border-radius: 0 25px 25px 0;
     border-left: 0;
+    min-height: 30px;
 }
 
 #bar-regular,
 #bar-reversed {
     height: 4vh;
+    min-height: 30px;
 }
 
 #bar-regular {
@@ -170,10 +177,12 @@ body {
     border: none;
     border: solid 3px black;
     border-radius: 35px;
-    font-size: 1.9vh;
+    font-size: calc(10px + 1vh);
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
     transition-duration: 0.05s;
+    min-width: 150px;
+    min-height: 35px;
 }
 
 #restart:hover {
@@ -190,12 +199,20 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 6vh;
+    height: 5vh;
     text-align: center;
+    min-height: 30px;
+    font-size: calc(12px + .5vh);
+
 }
 
 #github {
     height: 3vh;
     width: 3vh;
     padding-bottom: 0.2vh;
+    transition: 0.3s;
+}
+
+.git {
+    transform: scale(1.2) rotate(1turn);
 }

@@ -30,16 +30,11 @@
 
         <div class="instruction">SCORE 5 POINTS TO WIN</div>
 
-        <div class="headers">
-            <div>YOU</div>
-            <div id="round">ROUND</div>
-            <div>AI</div>
-        </div>
-
         <div class="gameplay-container">
             <div class="gameplay">
                 <div class="player">
-                    <div>PRESS QWE or CLICK</div>
+                    <div id="you">YOU</div>
+                    <div id="qwe">PRESS QWE or CLICK</div>
                     <div class="buttons">
                         <input class="gameplay-image active KeyQ" type="image" src="./img/rock-q.png" alt="rock">
                         <input class="gameplay-image active KeyW" type="image" src="./img/paper-w.png" alt="paper">
@@ -48,10 +43,12 @@
                 </div>
                 <div class="vertical-line"></div>
                 <div class="ai">
-                    <div class="buttons">
+                    <div id="ai">AI</div>
+                    <div class="buttons">                        
                         <img class="gameplay-image" src="./img/rock.jpg" alt="rock">                        
                         <img class="gameplay-image" src="./img/paper.png" alt="paper"> 
-                        <img class="gameplay-image" src="./img/scissors.jpg" alt="scissors">                     </div>
+                        <img class="gameplay-image" src="./img/scissors.jpg" alt="scissors">                     
+                    </div>
                 </div>
             </div>
             <div class="bar-container">
@@ -63,7 +60,7 @@
                 </div>
             </div>
             <div class="restart-container">
-                <button id="restart">RESTART</button>
+                <button id="restart">START AGAIN</button>
             </div>
         </div>
 
