@@ -52,7 +52,7 @@ function playGame(e) {
         playerScore++;
 
         // Add effects to images
-        playerImage.classList.add('red');
+        playerImage.classList.add('green');
         computerImage.classList.add('red');
 
         // Modify player score bar width
@@ -72,8 +72,8 @@ function playGame(e) {
     } else if (winner.toLocaleLowerCase().includes('tie')) {
         playAudio()
 
-        playerImage.classList.add('blue');
-        computerImage.classList.add('blue');
+        playerImage.classList.add('white');
+        computerImage.classList.add('white');
     } 
 
     if (playerScore >= 5) {
@@ -131,7 +131,7 @@ function stopRemovingEffects() {
 }
 
 function resetClasses() {
-    buttons.forEach(button => button.classList.remove('green', 'red', 'blue'));
+    buttons.forEach(button => button.classList.remove('green', 'red', 'white'));
 }
 
 function getPlayerInput(e) {
@@ -190,27 +190,30 @@ buttons.forEach(button => button.addEventListener('transitionend', removeTransit
 function removeTransition(e) {
     this.classList.remove('green');
     this.classList.remove('red');
-    this.classList.remove('blue');
+    this.classList.remove('white');
     this.classList.remove('git');
 }
 
 // Restart button functionality
 let restart = document.querySelector('#restart');
 restart.addEventListener('click', restartAll);
+window.addEventListener('keydown', restartAll);
 
-function restartAll() {
-    playerScore = 0;
-    computerScore = 0;
-
-    addListeners()
-
-    // Reset score bar length
-    regularWidth = 0;
-    barRegular.style.width = `${regularWidth}%`;
-    reversedWidth = 0;
-    barReversed.style.width = `${reversedWidth}%`;
-
-    resetClasses()
+function restartAll(e) {
+    if (e.code === 'Space' || e.button === 0) {
+        playerScore = 0;
+        computerScore = 0;
+     
+        addListeners()
+    
+        // Reset score bar length
+        regularWidth = 0;
+        barRegular.style.width = `${regularWidth}%`;
+        reversedWidth = 0;
+        barReversed.style.width = `${reversedWidth}%`;
+    
+        resetClasses()
+    }
 }
 
 // Github icon animation

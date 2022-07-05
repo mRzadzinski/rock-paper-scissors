@@ -41,13 +41,13 @@ body {
     border-color: #b80101;
 }
 
-.blue {
+.white {
     border-color: white;
 }
 
 .green,
 .red,
-.blue {
+.white {
     transform: scale(1.1);
 }
 
@@ -178,6 +178,8 @@ body {
 
 .restart-container {
     display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
     justify-content: center;
     align-items: center;
     height: 17vh;
@@ -197,6 +199,11 @@ body {
     transition-duration: 0.07s;
     min-width: 150px;
     min-height: 35px;
+}
+
+#restart-info {
+    margin-bottom: -3vh;
+    font-size: calc(12px + .6vh);
 }
 
 #restart:hover {
