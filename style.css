@@ -179,7 +179,7 @@ body {
 .restart-container {
     display: flex;
     flex-direction: column;
-    gap: 1.5vh;
+    gap: 2vh;
     justify-content: center;
     align-items: center;
     height: 17vh;
