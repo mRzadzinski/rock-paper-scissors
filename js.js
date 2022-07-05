@@ -1,3 +1,7 @@
+const audio = document.querySelector('audio');
+let playerScore = 0;
+let computerScore = 0;
+
 // Randomly generate rock, paper or scissors for computer
 function computerPlay() {
     let randomInt = getRandomInt();
@@ -16,29 +20,142 @@ function getRandomInt() {
     return Math.floor(Math.random() * 9);
 }
 
-// Get player's input, case insensitive
-function playerSelection() {
-    let input = prompt('Choose: rock, paper or scissors');
-    if (input === null) {
-        return 'You cancelled whole operation';
-    }
-    input = input.toLowerCase();
-    console.log(input);
+// Select regular bar
+let barRegular = document.querySelector('#bar-regular');
+regularWidth = 0;
+barRegular.style.width = `${regularWidth}%`;
+// Select reversed bar
+let barReversed = document.querySelector('#bar-reversed');
+reversedWidth = 0;
+barReversed.style.width = `${reversedWidth}%`;
 
-    if (input === 'rock') {
-        return 'Rock';
-    } else if (input === 'paper') {
-        return 'Paper';
-    } else if (input === 'scissors') {
-        return 'Scissors';
-    } else 
-    alert('Invalid input, type in: rock, paper or scissors. Please start again');
-    let handleInvalid = playerSelection();
-    return handleInvalid;  
+window.addEventListener('keydown', playGame);
+window.addEventListener('click', playGame);
+
+function playGame(e) {
+
+    // Timeout to prevent overlapping effects
+    removeListeners()
+    timeout = setTimeout(addListeners, 500);
+
+    let player = getPlayerInput(e);
+    let computer = computerPlay();
+    let winner = playRound(player, computer);
+
+    // Select images to modify
+    if (player === undefined) return;
+    let playerImage = document.querySelector(`.${player.toLowerCase()}.human`);
+    let computerImage = document.querySelector(`.${computer.toLowerCase()}.computer`);
+
+    if (winner.toLowerCase().includes('win')) {
+        playAudio()
+        playerScore++;
+
+        // Add effects to images
+        playerImage.classList.add('red');
+        computerImage.classList.add('red');
+
+        // Modify player score bar width
+        regularWidth += 20;
+        barRegular.style.width = `${regularWidth}%`;
+
+    } else if (winner.toLocaleLowerCase().includes('lose')) {
+        playAudio()
+        computerScore++;
+
+        playerImage.classList.add('red');
+        computerImage.classList.add('green');
+
+        reversedWidth += 20;
+        barReversed.style.width = `${reversedWidth}%`;
+
+    } else if (winner.toLocaleLowerCase().includes('tie')) {
+        playAudio()
+
+        playerImage.classList.add('blue');
+        computerImage.classList.add('blue');
+    } 
+
+    if (playerScore >= 5) {
+        humanWon();
+    } else if (computerScore >= 5) {
+        computerWon();
+    }
 }
 
-let player;
-let computer;
+function humanWon() {
+    clearTimeout(timeout);
+
+    removeListeners()
+
+    stopRemovingEffects()
+
+    resetClasses()
+
+    let humanButton = document.querySelectorAll('.human');
+    humanButton.forEach(button => button.classList.add('green'));
+
+    let computerButton = document.querySelectorAll('.computer');
+    computerButton.forEach(button => button.classList.add('red'));
+}
+
+function computerWon() {
+    clearTimeout(timeout);
+
+    removeListeners()
+
+    stopRemovingEffects()
+
+    resetClasses()
+
+    let humanButton = document.querySelectorAll('.human');
+    humanButton.forEach(button => button.classList.add('red'));
+
+    let computerButton = document.querySelectorAll('.computer');
+    computerButton.forEach(button => button.classList.add('green'));
+}
+
+function removeListeners() {
+    window.removeEventListener('keydown', playGame);
+    window.removeEventListener('click', playGame);
+}
+
+function addListeners() {
+    window.addEventListener('keydown', playGame);
+    window.addEventListener('click', playGame);
+    buttons.forEach(button => button.addEventListener('transitionend', removeTransition));
+}
+
+function stopRemovingEffects() {
+    buttons.forEach(button => button.removeEventListener('transitionend', removeTransition));
+}
+
+function resetClasses() {
+    buttons.forEach(button => button.classList.remove('green', 'red', 'blue'));
+}
+
+function getPlayerInput(e) {
+    let player;
+    if (e.code === 'KeyQ') {
+        player = 'Rock';
+        return player;
+    } else if (e.code === 'KeyW') {
+        player = 'Paper';
+        return player;
+    } else if (e.code === 'KeyE') {
+        player = 'Scissors';
+        return player;
+    } else if (e.target.classList.contains('KeyQ')) {
+        player = 'Rock';
+        return player;
+    } else if (e.target.classList.contains('KeyW')) {
+        player = 'Paper';
+        return player;
+    } else if (e.target.classList.contains('KeyE')) {
+        player = 'Scissors';
+        return player;
+    } else return;
+}
 
 // Play a round of the game, return result
 function playRound(playerSelection, computerSelection) {
@@ -61,96 +178,42 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-// Play one full game including getting input from user and computer selection
-function oneGame() {
-    player = window.playerSelection();
-    if (player === 'You cancelled whole operation') {
-        return player;
-    }
-
-    computer = window.computerPlay();
-    console.log('Computer: ' + computer);
-
-    return window.playRound(player, computer);
+function playAudio() {
+    audio.currentTime = 0; 
+    audio.play();
 }
 
-// Play 5 rounds, keep score and report winner or loser
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
+// When transition ends, remove effect
+let buttons = document.querySelectorAll('.gameplay-image');
+buttons.forEach(button => button.addEventListener('transitionend', removeTransition));
 
-    for (let i = 0; i < 5; i++) {
-        // Get input for new round
-        player = window.playerSelection();
-        if (player === 'You cancelled whole operation') {
-            return player;
-        }
-
-        computer = window.computerPlay();
-        console.log('Computer: ' + computer);
-
-        let winner = playRound(player, computer);
-        console.log(winner);
-
-        // Track score
-        if (winner.slice(0, 7) === 'You Win') {
-            playerScore++;
-        } else if (winner.slice(0, 8) === 'You Lose') {
-            computerScore++;
-        }
-
-        // If it was a last round print score and winner
-        if (i === 4) {
-            console.log('Your score: ' + playerScore + '\nComputer score:' + computerScore);
-
-            if (playerScore === computerScore) {
-                return('Tie!');
-            } else if (playerScore > computerScore) {
-                return('You Win!');
-            } else if (playerScore < computerScore) {
-                return('You Lose!');
-            }
-        }
-    }
-    return;
+function removeTransition(e) {
+    this.classList.remove('green');
+    this.classList.remove('red');
+    this.classList.remove('blue');
+    this.classList.remove('git');
 }
 
+// Restart button functionality
+let restart = document.querySelector('#restart');
+restart.addEventListener('click', restartAll);
 
-window.addEventListener('DOMContentLoaded', (event) => {
+function restartAll() {
+    playerScore = 0;
+    computerScore = 0;
 
-    const audio = document.querySelector('audio');
+    addListeners()
 
-    function addEffectsForKeys(e) {
-        const button = document.querySelector(`.gameplay-image.${e.code}`)
-        if (e.code === 'KeyQ' || e.code === 'KeyW' || e.code === 'KeyE') {
-            button.classList.add('clicked');
-            // Reset audio to play immediately again
-            audio.currentTime = 0; 
-            audio.play();
-        }
-    }
+    // Reset score bar length
+    regularWidth = 0;
+    barRegular.style.width = `${regularWidth}%`;
+    reversedWidth = 0;
+    barReversed.style.width = `${reversedWidth}%`;
 
-    //Add effects on click
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('active')) {
-            e.target.classList.add('clicked');
-            audio.play();
-        }
-    });
-    
-    // When transition ends, remove effect
-    const buttons = document.querySelectorAll('.active');
-    buttons.forEach(button => button.addEventListener('transitionend', removeTransition));
-    
-    function removeTransition(e) {
-        this.classList.remove('clicked');
-        this.classList.remove('git');
-    }
-    
-    window.addEventListener('keydown', addEffectsForKeys);
-    
-    const git = document.querySelector('#github');
-    git.addEventListener('mouseover', (e) => git.classList.add('git'));
-    git.addEventListener('mouseleave', (e) => git.classList.remove('git'));
+    resetClasses()
+}
 
-})
+// Github icon animation
+const git = document.querySelector('#github');
+git.addEventListener('mouseover', (e) => git.classList.add('git'));
+git.addEventListener('mouseleave', (e) => git.classList.remove('git'));

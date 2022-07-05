@@ -19,7 +19,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <script src="./js.js"></script>
+        <script defer src="./js.js"></script>
         <link rel="stylesheet" href="./style.css">
         <title>Rock-Paper-Scissors</title>
     </head>
@@ -36,18 +36,18 @@
                     <div id="you">YOU</div>
                     <div id="qwe">PRESS QWE or CLICK</div>
                     <div class="buttons">
-                        <input class="gameplay-image active KeyQ" type="image" src="./img/rock-q.png" alt="rock">
-                        <input class="gameplay-image active KeyW" type="image" src="./img/paper-w.png" alt="paper">
-                        <input class="gameplay-image active KeyE" type="image" src="./img/scissors-e.png" alt="scissors">
+                        <input class="gameplay-image rock KeyQ human" type="image" src="./img/rock-q.png" alt="rock">
+                        <input class="gameplay-image paper KeyW human" type="image" src="./img/paper-w.png" alt="paper">
+                        <input class="gameplay-image scissors KeyE human" type="image" src="./img/scissors-e.png" alt="scissors">
                     </div>
                 </div>
                 <div class="vertical-line"></div>
                 <div class="ai">
                     <div id="ai">AI</div>
                     <div class="buttons">                        
-                        <img class="gameplay-image" src="./img/rock.jpg" alt="rock">                        
-                        <img class="gameplay-image" src="./img/paper.png" alt="paper"> 
-                        <img class="gameplay-image" src="./img/scissors.jpg" alt="scissors">                     
+                        <img class="gameplay-image rock computer" src="./img/rock.jpg" alt="rock">                        
+                        <img class="gameplay-image paper computer" src="./img/paper.png" alt="paper"> 
+                        <img class="gameplay-image scissors computer" src="./img/scissors.jpg" alt="scissors">                     
                     </div>
                 </div>
             </div>
@@ -60,14 +60,14 @@
                 </div>
             </div>
             <div class="restart-container">
-                <button id="restart">START AGAIN</button>
+                <button id="restart">RESTART</button>
             </div>
         </div>
 
 
 
         <div class="footer">
-            Copyright © 2022 Maciej Rzadzinski&nbsp;
+            Copyright © 2022 Maciej Rzadzinski&nbsp&nbsp;
             <a href="https://github.com/mRzadzinski/rock-paper-scissors">
                 <img id="github" src="./img/github.png" alt="github">
             </a>

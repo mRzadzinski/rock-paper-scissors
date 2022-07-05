@@ -23,19 +23,32 @@ body {
 }
 
 .gameplay-image {
-    height: 12vh;
-    width: 12vh;
+    height: 11vh;
+    width: 11vh;
     min-height: 120px;
     min-width: 120px;
-    border: solid 0.4vh black;
+    border: solid 0.8vh #230C0F;
     border-radius: 10%;
     background-color: #230C0F;
-    transition: 0.09s;
+    transition: .3s;
 }
 
-.clicked {
+.green {
+    border-color: #0d9b31;
+}
+
+.red {
+    border-color: #b80101;
+}
+
+.blue {
+    border-color: white;
+}
+
+.green,
+.red,
+.blue {
     transform: scale(1.1);
-    border-color: #D6F49D;
 }
 
 .title {
@@ -149,10 +162,11 @@ body {
 #bar-reversed {
     height: 4vh;
     min-height: 30px;
+    transition: 0.3s;
 }
 
 #bar-regular {
-    width: 33%;
+    width: 20%;
     border-radius: 20px 0 0 20px;
 }
 
@@ -180,7 +194,7 @@ body {
     font-size: calc(10px + 1vh);
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
-    transition-duration: 0.05s;
+    transition-duration: 0.07s;
     min-width: 150px;
     min-height: 35px;
 }
