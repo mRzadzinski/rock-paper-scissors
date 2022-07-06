@@ -33,6 +33,12 @@ body {
     transition: .3s;
 }
 
+.green,
+.red,
+.white {
+    transform: scale(1.1);
+}
+
 .green {
     border-color: #0d9b31;
 }
@@ -43,12 +49,6 @@ body {
 
 .white {
     border-color: white;
-}
-
-.green,
-.red,
-.white {
-    transform: scale(1.1);
 }
 
 .title {
@@ -155,7 +155,6 @@ body {
 #bar-reversed-container {
     border-radius: 0 25px 25px 0;
     border-left: 0;
-    min-height: 30px;
 }
 
 #bar-regular,

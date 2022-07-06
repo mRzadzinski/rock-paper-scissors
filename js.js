@@ -1,36 +1,20 @@
-const audio = document.querySelector('audio');
-let playerScore = 0;
-let computerScore = 0;
-
-// Randomly generate rock, paper or scissors for computer
-function computerPlay() {
-    let randomInt = getRandomInt();
-
-    if (randomInt >= 0 && randomInt <= 2) {
-        return "Rock";
-    } else if (randomInt >= 3 && randomInt <= 5) {
-        return "Paper";
-    } else {
-        return "Scissors";
-    }
-}
-
-// Get random number between 0-8
-function getRandomInt() {
-    return Math.floor(Math.random() * 9);
-}
-
-// Select regular bar
+// Select score bars
 let barRegular = document.querySelector('#bar-regular');
-regularWidth = 0;
-barRegular.style.width = `${regularWidth}%`;
-// Select reversed bar
 let barReversed = document.querySelector('#bar-reversed');
-reversedWidth = 0;
-barReversed.style.width = `${reversedWidth}%`;
+resetScoreBars();
+
+function resetScoreBars() {
+    regularWidth = 0;
+    barRegular.style.width = `${regularWidth}%`;
+    reversedWidth = 0;
+    barReversed.style.width = `${reversedWidth}%`;
+}
 
 window.addEventListener('keydown', playGame);
 window.addEventListener('click', playGame);
+
+let playerScore = 0;
+let computerScore = 0;
 
 function playGame(e) {
 
@@ -59,7 +43,7 @@ function playGame(e) {
         regularWidth += 20;
         barRegular.style.width = `${regularWidth}%`;
 
-    } else if (winner.toLocaleLowerCase().includes('lose')) {
+    } else if (winner.toLowerCase().includes('lose')) {
         playAudio()
         computerScore++;
 
@@ -69,50 +53,61 @@ function playGame(e) {
         reversedWidth += 20;
         barReversed.style.width = `${reversedWidth}%`;
 
-    } else if (winner.toLocaleLowerCase().includes('tie')) {
+    } else if (winner.toLowerCase().includes('tie')) {
         playAudio()
 
         playerImage.classList.add('white');
         computerImage.classList.add('white');
     } 
 
-    if (playerScore >= 5) {
+    if (playerScore === 5) {
         humanWon();
-    } else if (computerScore >= 5) {
+    } else if (computerScore === 5) {
         computerWon();
     }
 }
 
+// Randomly generate rock, paper or scissors for computer
+function computerPlay() {
+    let randomInt = getRandomInt();
+
+    if (randomInt >= 0 && randomInt <= 2) {
+        return "Rock";
+    } else if (randomInt >= 3 && randomInt <= 5) {
+        return "Paper";
+    } else {
+        return "Scissors";
+    }
+}
+
+// Get random number between 0-8
+function getRandomInt() {
+    return Math.floor(Math.random() * 9);
+}
+
+let humanButtons = document.querySelectorAll('.human');
+let computerButtons = document.querySelectorAll('.computer');
+
 function humanWon() {
-    clearTimeout(timeout);
+    removeInteractivity();
 
-    removeListeners()
-
-    stopRemovingEffects()
-
-    resetClasses()
-
-    let humanButton = document.querySelectorAll('.human');
-    humanButton.forEach(button => button.classList.add('green'));
-
-    let computerButton = document.querySelectorAll('.computer');
-    computerButton.forEach(button => button.classList.add('red'));
+    humanButtons.forEach(button => button.classList.add('green'));
+    computerButtons.forEach(button => button.classList.add('red'));
 }
 
 function computerWon() {
+    removeInteractivity();
+
+    humanButtons.forEach(button => button.classList.add('red'));
+    computerButtons.forEach(button => button.classList.add('green'));
+}
+
+function removeInteractivity() {
+
     clearTimeout(timeout);
-
     removeListeners()
-
     stopRemovingEffects()
-
     resetClasses()
-
-    let humanButton = document.querySelectorAll('.human');
-    humanButton.forEach(button => button.classList.add('red'));
-
-    let computerButton = document.querySelectorAll('.computer');
-    computerButton.forEach(button => button.classList.add('green'));
 }
 
 function removeListeners() {
@@ -135,7 +130,9 @@ function resetClasses() {
 }
 
 function getPlayerInput(e) {
+
     let player;
+
     if (e.code === 'KeyQ') {
         player = 'Rock';
         return player;
@@ -178,6 +175,9 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+const audio = document.querySelector('#click-sound');
+
+// Set current time to play sound immediately on function call 
 function playAudio() {
     audio.currentTime = 0; 
     audio.play();
@@ -191,7 +191,6 @@ function removeTransition(e) {
     this.classList.remove('green');
     this.classList.remove('red');
     this.classList.remove('white');
-    this.classList.remove('git');
 }
 
 // Restart button functionality
@@ -201,18 +200,13 @@ window.addEventListener('keydown', restartAll);
 
 function restartAll(e) {
     if (e.code === 'Space' || e.button === 0) {
+
         playerScore = 0;
         computerScore = 0;
      
-        addListeners()
-    
-        // Reset score bar length
-        regularWidth = 0;
-        barRegular.style.width = `${regularWidth}%`;
-        reversedWidth = 0;
-        barReversed.style.width = `${reversedWidth}%`;
-    
         resetClasses()
+        resetScoreBars();
+        addListeners()
     }
 }
 
