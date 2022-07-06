@@ -2,7 +2,9 @@
 
 # Rock-Paper-Scissors
 
-#### Application simulates classic rock-paper-scissors game through minimalistic interface. Apart from simple text instructions, visual effects and sound convey all necessary gameplay information.
+Application simulates classic rock-paper-scissors game through minimalistic interface. 
+
+Apart from simple text instructions, visual effects and sound convey all necessary gameplay information.
 
 ## Features
 * Play using QWE keys or mouse click
