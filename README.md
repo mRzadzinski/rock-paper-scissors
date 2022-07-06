@@ -8,7 +8,7 @@ Apart from simple text instructions, visual effects and sound convey all necessa
 
 ## Features
 * Play using QWE keys or mouse click
-* Click 'restart' button or press spacebar to restart
+* Click RESTART button or press spacebar to restart
 * Interactive animations and sound
 * Visual score counter for player and computer
 * Blocking interface after a game with possibility to restart
