@@ -2,10 +2,10 @@
 
 # Rock-Paper-Scissors
 
-#### Main aim of this application is to provide satisfying user experience through minimalistic interface. Apart from simple text instructions, visual effects and sound convey all necessary gameplay information.
+#### Application simulates classic rock-paper-scissors game through minimalistic interface. Apart from simple text instructions, visual effects and sound convey all necessary gameplay information.
 
 ## Features
-* Play using QWE keys or click
+* Play using QWE keys or mouse click
 * Click 'restart' button or press spacebar to restart
 * Interactive animations and sound
 * Visual score counter for player and computer
@@ -15,6 +15,13 @@
 * Javascript
 * HTML
 * CSS
+
+## Skills practiced
+* Javascript - basic syntax and functionality 
+* Javascript - DOM Manipulation and Events
+* HTML - structure and attributes
+* CSS and Flexbox 
+* Attempt to write clean and readable code
 
 ## Acknowledgments
 * This project is an assignment from The Odin Project course:
