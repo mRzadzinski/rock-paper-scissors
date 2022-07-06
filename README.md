@@ -1,4 +1,4 @@
-![alt text](./img/gui.png)
+![alt text](./img/ui.png)
 
 # Rock-Paper-Scissors
 
