@@ -67,7 +67,6 @@ body {
     align-items: center;
     height: 6vh;
     margin-top: -1.7vh;
-    padding-bottom: 1.1vh;
     font-size: calc(15px + 1vh);
 }
 
@@ -75,6 +74,7 @@ body {
     display: flex;
     flex-direction: column;
     flex: 1;
+    padding-top: 2vh;
 }
 
 .gameplay {
