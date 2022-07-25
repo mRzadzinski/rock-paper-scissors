@@ -29,11 +29,8 @@ Apart from simple text instructions, visual effects and sound convey all necessa
 
 ## Acknowledgments
 * This project is an assignment from The Odin Project course:
-
   * [Rock Paper Scissors](https://www.theodinproject.com/lessons/foundations-rock-paper-scissors) (console version)
-
   * [Revisiting Rock Paper Scissors](https://www.theodinproject.com/lessons/foundations-revisiting-rock-paper-scissors) (add UI)
-  
 * [Minimalistic design inspiration](https://jetza99.github.io/rock-paper-scissors/)
 * [Score bar inspiration](https://tomsoerr.github.io/odin-rock-paper-scissors/)
 * [Github logo animation idea](https://michalosman.github.io/rock-paper-scissors/)
