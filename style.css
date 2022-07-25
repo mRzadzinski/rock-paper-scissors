@@ -74,7 +74,7 @@ body {
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding-top: 2vh;
+    padding-top: 2vh    ;
 }
 
 .gameplay {

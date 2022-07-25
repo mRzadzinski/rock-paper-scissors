@@ -2,6 +2,8 @@
 
 # Rock-Paper-Scissors
 
+[PLAY NOW!](https://mrzadzinski.github.io/rock-paper-scissors/)
+
 Application simulates classic rock-paper-scissors game through minimalistic interface. 
 
 Apart from simple text instructions, visual effects and sound convey all necessary gameplay information.
