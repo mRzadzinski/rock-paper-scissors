@@ -18,7 +18,7 @@ Apart from simple text instructions, visual effects and sound convey all necessa
 ## Technologies
 * Javascript
 * HTML
-* CSS
+* CSS (Flexbox)
 
 ## Skills practiced
 * Javascript - basic syntax and functionality 
